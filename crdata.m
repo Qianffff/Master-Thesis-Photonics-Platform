@@ -193,7 +193,7 @@ set(gca, 'Color', 'white', ...
 
 %% Time tagger laserSweep data with txt
 % 1. 配置与加载数据
-filename = 'Time_Tagger_measurement\_1570-1580.csv';
+filename = 'Time_Tagger_measurement.csv';
 opts = detectImportOptions(filename, 'FileType', 'text', 'Delimiter', '\t');
 opts.VariableNamingRule = 'preserve';
 T = readtable(filename);
@@ -251,7 +251,7 @@ ylim([0, y_limit]);
 
 %% Filter of noises in laserSweep
 %  1. 加载数据
-filename = 'Ch3_R2_Counter_time_trace_2026-04-10_160840.txt'; 
+filename = 'Counter_time_trace.txt'; 
 opts = detectImportOptions(filename, 'FileType', 'text', 'Delimiter', '\t');
 opts.VariableNamingRule = 'preserve';
 T = readtable(filename, opts);
