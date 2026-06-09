@@ -3,9 +3,9 @@ clear;
 close all;
 
 %% ===================== USER PARAMETERS =====================
-videoFile = 'WIN_20260210_11_15_12_Pro.mp4';
-pixelSizeX = 0.84;        % μm per pixel in X
-pixelSizeY = 0.98;        % μm per pixel in Y
+videoFile = 'Recorded Video.mp4';
+pixelSizeX = ;        % μm per pixel in X
+pixelSizeY = ;        % μm per pixel in Y
 thresholdRatio = 0.6;     % Threshold as fraction of global max intensity
 maxSpotAreaPixels = 1000; % Maximum spot area in pixels (adjust if needed)
 
