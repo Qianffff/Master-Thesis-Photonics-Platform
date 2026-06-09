@@ -135,7 +135,7 @@ function capturePhoto(btn,~)
     timeStamp = sprintf('%02d%02d%02d%02d%02d', ...
         currentTime(2), currentTime(3), currentTime(4), currentTime(5), round(currentTime(6)));
     
-    folderName = 'D:\Doc\thesis\results'; 
+    folderName = fullfile(pwd, 'results');
     filename = sprintf('photo_%s_C%.2f_B%.2f.png', timeStamp, contrastGain, brightnessLevel);
     fullPath = fullfile(folderName, filename);
     
@@ -159,7 +159,7 @@ function toggleRecording(btn,~)
         videoObj = VideoWriter(filename);
         open(videoObj);
         assignin('base','videoObj',videoObj);
-        assignin('baseExcel','isRecording',true); % 兼容改写
+        assignin('base','isRecording',true); % 兼容改写
         assignin('base','isRecording',true);
         btn.Text = 'Stop Recording';
         disp(['Recording started: ', filename])
