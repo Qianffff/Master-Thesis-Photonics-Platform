@@ -46,7 +46,7 @@ function saveDataCallback(BC, net_CR, custom_col_name, save_filename, hFig)
     writetable(T_total, save_filename, 'Delimiter', '\t');
     
     % 2. Export High-Resolution Image File
-    folderName = 'D:\Doc\thesis\results';
+    folderName = fullfile(pwd, 'results');
     if ~exist(folderName, 'dir')
         mkdir(folderName);
     end
@@ -133,9 +133,9 @@ box on;
 
 
 %% ===== SNSPD Saturation & DCR Visualizer (Dual-Panel) =====
-filepath = "CR_LNOI_ICP_PE_1550_2026-05-22--13-25-53_23567.txt";
-dark_filepath = "DCR_LNOI_ICP_PE_2026-05-22--12-22-32.txt";
-save_filename = "Processed_Efficiency_Results_3s_0528.txt"; 
+filepath = "CR.txt";
+dark_filepath = "DCR.txt";
+save_filename = "Processed_Efficiency_Results.txt"; 
 custom_col_name = 'LNOI_10';
 
 % Load Data
@@ -265,7 +265,7 @@ disp('▲ Preview figure generated. Verify curves and click "Confirm & Save Data
 
 %% LaserSweep data with csv (developed gui) (stiching version)
 % 1. 配置与加载数据
-filename = 'Time_Tagger_measurement\Scan_1530-1580_10nmStich.csv';
+filename = 'Time_Tagger_measurement.csv';
 
 opts = detectImportOptions(filename, 'FileType', 'text', 'Delimiter', '\t');
 opts.VariableNamingRule = 'preserve';
@@ -348,7 +348,7 @@ ylim([0, max(count_rate_mcps_full)*1.05]);
 
 %% LaserSweep data with csv (developed GUI)
 % 1. Configuration and Load Data
-filename = 'Time_Tagger_measurement\Scan_1530-1580_10nmStich';
+filename = 'Time_Tagger_measurement';
 % Detect import options and set delimiter to tab as per the file structure
 opts = detectImportOptions(filename, 'FileType', 'text', 'Delimiter', '\t');
 opts.VariableNamingRule = 'preserve'; % Keep original headers including underscores
@@ -425,8 +425,8 @@ hold off;
 
 %% Fitting and Selective Saving (Interactive Mode)
 % ==== Configuration ====
-filename = 'DAC_0.5nms_2mW\20260511_114337_rr_120um_1530-1580nm';
-output_file = 'fitting_results_table_rr.txt';
+filename = 'DAC';
+output_file = 'fitting_results_table.txt';
 output_dir = 'Fitted_Peaks_DAC';
 
 % Load data
@@ -516,7 +516,7 @@ fprintf('\nSuccess! %d peaks logged to %s.\n', logged_count, output_file);
 
 %% FWHM plotting
 % 1. 读取数据
-filename = 'fitting_results_table2.txt';
+filename = 'fitting_results_table.txt';
 % 使用 detectImportOptions 来确保正确识别格式
 opts = detectImportOptions(filename);
 % 强制要求 table 保持原始表头字符，不进行转换（有些版本有效）
@@ -561,7 +561,7 @@ title('FWHM Variation with Wavelength');
 
 %% FSR plotting
 % Load the data from the text file
-filename = 'fitting_results_table_rr.txt';
+filename = 'fitting_results_table.txt';
 opts = detectImportOptions(filename);
 data = readtable(filename, opts);
 
@@ -676,9 +676,9 @@ text(text_x, text_y, str, 'FontSize', 25, 'BackgroundColor', [1 1 1 0.8], 'EdgeC
 
 
 %% ===== Dual-SNSPD Efficiency & DCR Visualizer =====
-filepath = "CR_LNOI_ICP_PE_1550_2026-05-22--13-25-53_23567.txt";
-dark_filepath = "DCR_LNOI_ICP_PE_2026-05-22--12-22-32.txt";
-save_filename = "Processed_Efficiency_Results_Dual_0528.txt"; 
+filepath = "CR.txt";
+dark_filepath = "DCR.txt";
+save_filename = "Processed_Efficiency_Results.txt"; 
 
 % ========================================================
 %  【自定义配置区】 在这里直接修改设备名称、通道和临界电流
@@ -775,9 +775,9 @@ lgd2.FontWeight = 'bold'; lgd2.EdgeColor = [0 0 0];
 ylim([0, max([DCR_aligned1; DCR_aligned2]) * 1.15]); xlim([0, x_max_limit]); grid on;
 
 %% ===== Dual-SNSPD Count Rate & DCR Visualizer =====
-filepath = "CR_LNOI_ICP_PE_1550_2026-05-22--13-25-53_23567.txt";
-dark_filepath = "DCR_LNOI_ICP_PE_2026-05-22--12-22-32.txt";
-save_filename = "Processed_Results_Dual_0528.txt"; 
+filepath = "CR.txt";
+dark_filepath = "DCR.txt";
+save_filename = "Processed_Results.txt"; 
 
 % ========================================================
 %  【自定义配置区】 在这里直接修改设备名称、通道和临界电流
